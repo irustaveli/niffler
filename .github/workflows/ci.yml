@@ -10,4 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ls -la
+      - run: find . -type f -name "*.yml" -print0 | xargs -0 sed -i 's/dtuchs/ilya911602/g'
+      - run: cat docker-compose.yml
