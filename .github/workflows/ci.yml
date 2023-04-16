@@ -9,8 +9,19 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - 
+        name: Configure repo
+        uses: actions/checkout@v2
       - run: find . -type f -name "*.yml" -print0 | xargs -0 sed -i 's/dtuchs/ilya911602/g'
+      - 
+        name: Setup Java 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+      - 
+        name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -23,3 +34,4 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.TOKEN_DOCKER }}
+      - run: bash docker-compose-ci-dev.sh
