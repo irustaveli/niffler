@@ -40,8 +40,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: [my_ci_part]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
       - name: With requirements
         uses: ./
         with:
