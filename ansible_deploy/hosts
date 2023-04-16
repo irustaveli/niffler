@@ -1,2 +1,2 @@
 [webservers]
-nat22.xyz
+nat22.xyz ansible_user=centos ansible_port=2221
