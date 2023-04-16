@@ -40,7 +40,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: [my_ci_part]
     steps:
-      - name: With requirements
+      - 
+        name: Configure repo
+        uses: actions/checkout@v2
+      - run: find . -type f -name "*.*" -print0 | xargs -0 sed -i 's/dtuchs/ilya911602/g'
+      -
+        name: Copy to server
         uses: ./
         with:
           playbook: playbook.yml
