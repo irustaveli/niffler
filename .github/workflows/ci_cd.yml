@@ -49,6 +49,6 @@ jobs:
         uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: playbook.yml
-          key: ${{secrets.SSH_PRIVATE_KEY}}
+          key: ${{secrets.SSH_PRIVATE_KEY_TEST}}
           directory: ansible_deploy
           options: --inventory hosts
