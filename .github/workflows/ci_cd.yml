@@ -46,7 +46,7 @@ jobs:
         uses: ./
         with:
           playbook: playbook.yml
-          key: ${{secret.SSH_PRIVATE_KEY}}
+          key: ${{secrets.SSH_PRIVATE_KEY}}
           ansible_port: 2221
           directory: test
           options: --inventory hosts
