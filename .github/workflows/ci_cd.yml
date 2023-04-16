@@ -46,7 +46,7 @@ jobs:
       - run: find . -type f -name "*.*" -print0 | xargs -0 sed -i 's/dtuchs/ilya911602/g'
       -
         name: Copy to server
-        uses: ./
+        uses: dawidd6/action-ansible-playbook@v2
         with:
           playbook: playbook.yml
           key: ${{secrets.SSH_PRIVATE_KEY}}
