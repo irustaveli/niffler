@@ -15,7 +15,7 @@ gradle --version
 
 ARCH=$(uname -m)
 
-bash ./gradlew clean build dockerTagLatest -x :niffler-e-2-e-tests:test
+bash ./gradlew clean build dockerPush -x :niffler-e-2-e-tests:test
 
 if [ "$ARCH" = "arm64" ] || [ "$ARCH" = "aarch64" ]; then
   docker build --build-arg DOCKER=arm64v8/eclipse-temurin:19-jdk -t "${IMAGE_NAME}":"${VERSION}" -t "${IMAGE_NAME}":latest -f ./niffler-e-2-e-tests/Dockerfile .

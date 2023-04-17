@@ -34,7 +34,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.TOKEN_DOCKER }}
-      - run: bash docker-compose-ci-e2e.sh push
+      - run: bash docker-compose-ci-e2e.sh
   
   my_cd_part:
     runs-on: test-runner
