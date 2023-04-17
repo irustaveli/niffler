@@ -26,7 +26,7 @@ else
   docker build --build-arg DOCKER=eclipse-temurin:19-jdk -t "${IMAGE_NAME}":"${VERSION}" -t "${IMAGE_NAME}":latest -f ./niffler-e-2-e-tests/Dockerfile .
   echo '### Push niffler-e-2-e-tests image ###'
   docker push ${IMAGE_NAME}:${VERSION}
-  docker push ${IMAGE_NAME}":latest
+  docker push ${IMAGE_NAME}:latest
 fi
 
 var front
