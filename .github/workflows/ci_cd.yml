@@ -37,18 +37,15 @@ jobs:
       - run: bash docker-compose-ci-dev.sh push
   
   my_cd_part:
-    runs-on: ubuntu-latest
+    runs-on: test-runner
     needs: [my_ci_part]
     steps:
       - 
-        name: Configure repo
+        name: Deploy
         uses: actions/checkout@v2
       - run: find . -type f -name "*.*" -print0 | xargs -0 sed -i 's/dtuchs/ilya911602/g'
-      -
-        name: Copy to server
-        uses: dawidd6/action-ansible-playbook@v2
-        with:
-          playbook: playbook.yml
-          key: ${{secrets.SSH_PRIVATE_KEY_TEST}}
-          directory: ansible_deploy
-          options: --inventory hosts
+      - run: |
+            echo "=============start==================="
+            pwd
+            docker-compose -f docker-compose.test.yml up -d
+            echo "=============done==================="
