@@ -7,6 +7,9 @@ if [ "$1" = "dev" ]; then
 elif [ "$1" = "test" ]; then
   echo '### Build test frontend image ###'
   docker build --build-arg NPM_COMMAND=${TEST_BUILD} -t ${IMAGE_NAME}-test:${VERSION} -t ${IMAGE_NAME}-test:latest .
+  echo '### Push frontend image ###'
+  docker push ${IMAGE_NAME}-test:${VERSION}
+  docker push ${IMAGE_NAME}-test:latest
 fi
 
 if [ "$2" = "push" ]; then
