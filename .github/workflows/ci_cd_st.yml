@@ -3,7 +3,7 @@ name: Test clone repo
 on:
   push:
     branches:
-      - master
+      - develop
 
 jobs:
   my_ci_part:
@@ -34,7 +34,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.TOKEN_DOCKER }}
-      - run: bash docker-compose-ci-dev.sh push
+      - run: bash docker-compose-ci-e2e.sh push
   
   my_cd_part:
     runs-on: test-runner

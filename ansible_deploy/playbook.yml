@@ -1,8 +1,0 @@
-
-- name: Deploy to server
-  hosts: all
-  tasks:
-    - name: Copy file
-      copy:
-        src: /home/runner/work/niffler/niffler/
-        dest: /tmp
