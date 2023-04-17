@@ -1,11 +1,11 @@
 name: Test clone repo
 
 on:
-  pull_request:
-  push:
+  pull_request_review:
     branches:
       - master
-
+    types:
+      - submitted
 
 jobs:
   my_ci_part:
